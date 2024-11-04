@@ -15,6 +15,10 @@
             ]
         }
     },
-    "postCreateCommand": "echo 'echo \"Please run: az login\" to authenticate with Azure' >> ~/.bashrc",
+    "postCreateCommand": [
+        "echo 'echo \"Please run: az login\" to authenticate with Azure' >> ~/.bashrc",
+        "git config --global user.name \"$(git config --global user.name)\"",
+        "git config --global user.email \"$(git config --global user.email)\""
+    ],
     "remoteUser": "root"
 }
