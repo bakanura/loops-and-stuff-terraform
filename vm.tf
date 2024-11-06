@@ -4,7 +4,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   name                = "${each.value}-${random_string.suffix.result}"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  size                = "Standard_F2"
+  size                = "Standard_A1_v2"
   admin_username      = var.username
   admin_password      = var.password
   network_interface_ids = [

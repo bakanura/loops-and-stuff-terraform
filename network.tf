@@ -22,7 +22,7 @@ resource "azurerm_network_interface" "example" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_virtual_network.example.subnet[each.key].id
+    subnet_id                     = tolist(azurerm_virtual_network.example.subnet)[tonumber(each.key) - 1].id
     private_ip_address_allocation = "Dynamic"
   }
 }
