@@ -7,8 +7,18 @@ variable "region" {
 variable "vms" {
   type = map(string)
   default = {
-    vm1 = "Node1"
-    vm2 = "Node2"
-    vm3 = "Node3"
+    1 = "Node1"
+    2 = "Node2"
+    3 = "Node3"
   }
+}
+
+variable "username" {
+  type    = string
+  default = "cloudUser"
+}
+
+variable "password" {
+  type    = string
+  default = "Passw0rd1234"
 }

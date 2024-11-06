@@ -7,19 +7,22 @@ resource "azurerm_virtual_network" "example" {
   dynamic "subnet" {
     for_each = var.vms
     content {
-      name             = "${subnet.value}-subnet-${random_string.suffix}"
-      address_prefixes = ["10.${length(var.vms) + length(subnet.key)}.0/24"]
+      name             = "${subnet.value}-subnet-${random_string.suffix.result}"
+      address_prefixes = ["10.0.${subnet.key}.0/24"]
     }
   }
 }
+
 resource "azurerm_network_interface" "example" {
-  name                = "example-nic"
+  for_each = var.vms
+
+  name                = "nic-${each.key}-${random_string.suffix.result}"
   location            = var.region
   resource_group_name = azurerm_resource_group.example.name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.example.id
+    subnet_id                     = azurerm_virtual_network.example.subnet[each.key].id
     private_ip_address_allocation = "Dynamic"
   }
 }
