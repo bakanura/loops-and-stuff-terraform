@@ -11,7 +11,6 @@
                 "hashicorp.terraform",
                 "ms-azuretools.vscode-azureterraform",
                 "ms-azure-devops.azure-pipelines",
-                "betajob.modulestf",
                 "ms-azuretools.vscode-azurevirtualmachines",
                 "ms-vscode-remote.vscode-remote-extensionpack"
             ]
