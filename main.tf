@@ -7,3 +7,9 @@ resource "random_string" "suffix" {
   special = false
   upper   = false
 }
+
+
+resource "random_password" "vm_password" {
+  length  = 16
+  special = true
+}

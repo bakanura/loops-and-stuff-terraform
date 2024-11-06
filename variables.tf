@@ -17,8 +17,3 @@ variable "username" {
   type    = string
   default = "cloudUser"
 }
-
-variable "password" {
-  type    = string
-  default = "Passw0rd1234"
-}
