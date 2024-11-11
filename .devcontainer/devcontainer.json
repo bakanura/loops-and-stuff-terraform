@@ -34,22 +34,17 @@
             "target": "/home/vscode/.ssh",
             "type": "bind"
         },
-
         {
             "source": "${env:HOME}/.gitconfig",
             "target": "/home/vscode/.gitconfig",
             "type": "bind"
         },
-
         {
             "source": "${env:HOME}/.azure",
             "target": "/home/vscode/.azure",
             "type": "bind"
         }
-    ],
-
-    "postCreateCommand": [
-        "if [ -d /home/vscode/.azure ]; then az login --use-device-code; fi",
-        "echo 'Current Azure Subscription: $(az account show --query \"name\" -o tsv)'"
     ]
+
+   // "postCreateCommand": [
 }
