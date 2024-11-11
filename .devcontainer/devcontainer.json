@@ -24,7 +24,7 @@
         }
     },
 
-    //"postCreateCommand": []
+    //"postCreateCommand": [],
 
     "remoteUser": "root",
 
@@ -34,17 +34,23 @@
             "target": "/home/vscode/.ssh",
             "type": "bind"
         },
-
         {
             "source": "${env:HOME}/.gitconfig",
             "target": "/home/vscode/.gitconfig",
             "type": "bind"
         },
-
         {
             "source": "${env:HOME}/.azure",
             "target": "/home/vscode/.azure",
             "type": "bind"
         }
+    ],
+
+    "postCreateCommand": [
+        "export AZ_SUBSCRIPTION_ID=$(az account show --query 'id' -o tsv) && az account set --subscription $AZ_SUBSCRIPTION_ID"
+    ],
+    
+    "runArgs": [
+        "--env-file=.env"
     ]
 }
