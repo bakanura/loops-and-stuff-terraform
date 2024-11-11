@@ -7,10 +7,11 @@
         "ghcr.io/devcontainers/features/common-utils:1": {
             "installZsh": "true",
             "installOhMyZsh": "true",
-            "upgradePackages": "true",
-            "installSSH": "true"
-        }
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/sshd:1":"latest"
     },
+
     "customizations": {
         "vscode": {
             "extensions": [
@@ -22,10 +23,28 @@
             ]
         }
     },
-    "postCreateCommand": [
-        "echo 'echo \"Please run: az login\" to authenticate with Azure' >> ~/.bashrc",
-        "git config --global user.name \"$(git config --global user.name)\"",
-        "git config --global user.email \"$(git config --global user.email)\""
-    ],
-    "remoteUser": "root"
+
+    //"postCreateCommand": []
+
+    "remoteUser": "root",
+
+    "mounts": [
+        {
+            "source": "${env:HOME}/.ssh",
+            "target": "/home/vscode/.ssh",
+            "type": "bind"
+        },
+
+        {
+            "source": "${env:HOME}/.gitconfig",
+            "target": "/home/vscode/.gitconfig",
+            "type": "bind"
+        },
+
+        {
+            "source": "${env:HOME}/.azure",
+            "target": "/home/vscode/.azure",
+            "type": "bind"
+        }
+    ]
 }
