@@ -25,7 +25,7 @@
     },
 
     //"postCreateCommand": [],
-
+    
     "remoteUser": "root",
 
     "mounts": [
@@ -34,17 +34,11 @@
             "target": "/home/vscode/.ssh",
             "type": "bind"
         },
-        {
-            "source": "${env:HOME}/.gitconfig",
-            "target": "/home/vscode/.gitconfig",
-            "type": "bind"
-        },
+
         {
             "source": "${env:HOME}/.azure",
-            "target": "/home/vscode/.azure",
+            "target": "/root/.azure",
             "type": "bind"
         }
     ]
-
-   // "postCreateCommand": [
 }
