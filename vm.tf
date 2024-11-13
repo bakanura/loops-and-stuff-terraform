@@ -6,7 +6,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   location            = azurerm_resource_group.example.location
   size                = "Standard_A1_v2"
   admin_username      = var.username
-  admin_password      = "${random_password.vm_password.result}"
+  admin_password      = random_password.vm_password.result
   network_interface_ids = [
     azurerm_network_interface.example[each.key].id,
   ]

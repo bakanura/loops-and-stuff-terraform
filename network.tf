@@ -13,6 +13,7 @@ resource "azurerm_virtual_network" "example" {
   }
 }
 
+# Vm network
 resource "azurerm_network_interface" "example" {
   for_each = var.vms
 
